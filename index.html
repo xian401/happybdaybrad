@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy 19th Birthday Nikka 🎉</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd6e0, #fff1c1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    overflow: hidden;
+}
+
+/* START BUTTON */
+#startBtn {
+    padding: 22px 38px;
+    font-size: 24px;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* CARD */
+.card {
+    display: none;
+    background: white;
+    padding: 70px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* CUPCAKE BASE */
+.cupcake {
+    position: relative;
+    margin: 40px auto;
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(#d4a373, #bc6c25);
+    border-radius: 0 0 40px 40px;
+    box-shadow: inset 0 -10px rgba(0,0,0,0.15);
+}
+
+/* FROSTING */
+.frosting {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 100px;
+    background: radial-gradient(circle at top, #fff, #ffb4c6);
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* SPRINKLES */
+.sprinkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: pink;
+}
+.sprinkle.star::before {
+    content: "★";
+    color: yellow;
+    font-size: 10px;
+    position: absolute;
+    top: -2px; left: -2px;
+}
+
+/* CHERRY */
+.cherry {
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: red;
+    border-radius: 50%;
+    box-shadow: 2px 2px rgb(255, 0, 0);
+}
+
+/* CANDLES HOLDER */
+.candles {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+}
+
+/* CANDLES */
+.candle {
+    position: relative;
+    width: 12px;
+    height: 50px;
+    background: linear-gradient(to bottom, #fff, #ffd6a5);
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    animation: melt 25s linear infinite;
+}
+.candle::before {
+    content: "";
+    width: 2px;
+    height: 8px;
+    background: #333;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1px;
+}
+
+/* FLAME */
+.flame {
+    width: 14px;
+    height: 18px;
+    background: radial-gradient(circle, #ffd166, #ff7b00);
+    border-radius: 50%;
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flicker 0.25s infinite alternate;
+}
+
+/* MELT */
+@keyframes melt {
+    from { height: 50px; }
+    to { height: 40px; }
+}
+
+/* FLICKER */
+@keyframes flicker {
+    from { transform: translateX(-50%) scale(1); opacity: 0.9; }
+    to { transform: translateX(-50%) scale(1.4); opacity: 1; }
+}
+
+/* CONFETTI */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    animation: fall 5s linear infinite;
+    top: -10px;
+}
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* FIREWORK */
+.firework {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+@keyframes explode {
+    to { transform: translate(var(--x), var(--y)); opacity: 0; }
+}
+
+/* CATS */
+.cat {
+    position: fixed;
+    font-size: 40px;
+    animation: walk 8s linear infinite;
+    bottom: 10px;
+}
+@keyframes walk {
+    from { left: -50px; }
+    to { left: 110vw; }
+}
+</style>
+</head>
+
+<body>
+
+<button id="startBtn" onclick="startSurprise()">🎁hi gandaaa, open mo hshahdagd!</button>
+
+<div class="card" id="card">
+    
+
+    
+   
+    
+
+    <div class="cupcake">
+        <div class="frosting"></div>
+        <div class="cherry"></div>
+
+        <div class="candles">
+            <div class="candle"><div class="flame"></div></div>
+            <div class="candle"><div class="flame"></div></div>
+            <div class="candle"><div class="flame"></div></div>
+        </div>
+
+        <!-- Sprinkles -->
+        <div class="sprinkle" style="top:10px; left:30px;"></div>
+        <div class="sprinkle" style="top:25px; left:60px;"></div>
+        <div class="sprinkle star" style="top:40px; left:120px;"></div>
+        <div class="sprinkle" style="top:20px; left:150px;"></div>
+        <div class="sprinkle star" style="top:15px; left:180px;"></div>
+    </div>
+
+   <h2>Happy 19th Birthday</h2>
+    <p style="margin-top: 20px;">🎂Make a wish and blow the candles 🎂</p>
+     <p id="wish" style="margin-top: 10px;">Blow into the microphone!</p>
+</div>
+
+<audio id="music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+let micStarted = false;
+
+function startSurprise() {
+    startBtn.style.display = "none";
+    card.style.display = "block";
+    music.play();
+    createConfetti();
+    createCats();
+    startMic();
+}
+
+/* CONFETTI */
+function createConfetti() {
+    for (let i=0;i<80;i++){
+        const c=document.createElement("div");
+        c.className="confetti";
+        c.style.left=Math.random()*100+"vw";
+        c.style.background=`hsl(${Math.random()*360},100%,50%)`;
+        c.style.animationDuration=(Math.random()*3+3)+"s";
+        document.body.appendChild(c);
+    }
+}
+
+/* CATS */
+function createCats() {
+    const cats=["🐱","😺","🐈"];
+    for(let i=0;i<4;i++){
+        const cat=document.createElement("div");
+        cat.className="cat";
+        cat.textContent=cats[Math.floor(Math.random()*cats.length)];
+        cat.style.animationDelay=i*2+"s";
+        document.body.appendChild(cat);
+    }
+}
+
+/* FIREWORKS */
+function fireworks() {
+    for(let i=0;i<30;i++){
+        const f=document.createElement("div");
+        f.className="firework";
+        f.style.left="50vw";
+        f.style.top="50vh";
+        f.style.background=`hsl(${Math.random()*360},100%,50%)`;
+        f.style.setProperty("--x",(Math.random()*300-150)+"px");
+        f.style.setProperty("--y",(Math.random()*300-150)+"px");
+        document.body.appendChild(f);
+        setTimeout(()=>f.remove(),1000);
+    }
+}
+
+/* MIC BLOW */
+function startMic() {
+    if(micStarted) return;
+    micStarted = true;
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+        const ctx=new AudioContext();
+        const analyser=ctx.createAnalyser();
+        const mic=ctx.createMediaStreamSource(stream);
+        mic.connect(analyser);
+        analyser.fftSize=256;
+        const data=new Uint8Array(analyser.frequencyBinCount);
+
+        function detect(){
+            analyser.getByteFrequencyData(data);
+            let volume=data.reduce((a,b)=>a+b)/data.length;
+
+            // shrink flames when blowing
+            document.querySelectorAll(".flame").forEach(f=>{
+                let scale=Math.max(0.3,1-volume/60);
+                f.style.transform=`translateX(-50%) scale(${scale})`;
+            });
+
+            if(volume>45){
+                document.querySelectorAll(".flame").forEach(f=>f.remove());
+                wish.innerHTML="Wish Granted! Happy Birthday Nikka!✨";
+                fireworks();
+            }
+            requestAnimationFrame(detect);
+        }
+        detect();
+    });
+}
+</script>
+
+</body>
+</html>
